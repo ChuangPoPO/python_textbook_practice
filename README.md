@@ -80,12 +80,11 @@
 			- 呼叫基礎類別的函式：`super().基礎類別的函式`
 		3. 覆寫函式
 			- Do：在衍伸類別內，重新修改基礎類別的函式
-			- For：衍伸類別與基礎類別的相同函式有不同的功能
+			- For：衍伸類別與基礎類別的**相同函式有不同的功能**
 		4. 新增參數的覆寫函式
-			- Timing：覆寫函式時
-			- Do：新增參數
+			- Do：覆寫函式時，新增參數
 		5. 新增函式
-			- Do：在衍伸類別內，新增基礎類別沒有的函式
+			- Do：在衍伸類別內，**新增基礎類別沒有的函式**
 		6. 多型(polymorphism)
 			- 多個類別可以定義**相同的**函式名稱
 			- 而相同的函式名稱在不同類別可以定義**各自特有的功能**
@@ -97,6 +96,52 @@
 				- e.g.`__變數名稱`
 			- 作用：其他物件 無法直接使用 `類別物件.__變數名稱` 來存取
 			- 解法：需要在類別內定義函式，回傳 `self.__變數名稱` 才能讓 其他物件 存取到該變數
+		8. 特殊函式(special method)
+			- 運算子('=='、'!='...)或內建函式
+			可以與[特殊函式](https://docs.python.org/3/reference/datamodel.html#special-method-names)
+			(`__eq__`、`__ne__`)自動對應
+			- 詳見表格
+		9. 組合(composition)
+			- 類別與類別間不全然是繼承關係
+			- 也可能 類別A 是 類別B 的一部分
+				- ex. 腳是動物的一部分，但腳不是動物，腳無法繼承動物
+				- 因此在 動物類別 初始化時，將 腳 當成參數傳入，讓 腳 為 動物 的一部分
+		10. 類別方法(class method)
+			- 作用對象：類別(class)
+			- 影響：整個類別、類別所產生的物件
+			- 類別方法：
+				* 第一個參數：通常取名為`cls`
+				* 需在類別中，函式的前一行使用裝飾器`@classmethod`
+			- 實例方法(instance method):
+				* 第一個參數都是 `self`
+		11. 靜態方法(static method)
+			- 讓類別不需要建立物件，就可以直接使用該類別的靜態方法
+			- 需在類別中，函式的前一行使用裝飾器`@staticmethod`
+				
+|                     |特殊函式                    |對應的運算子         |
+|---------------------|----------------------------|---------------------|
+|比較運算             |\__eq\__(self, other)       |self == other        |
+|                     |\__ne\__(self, other)       |self != other        |
+|                     |\__gt\__(self, other)       |self > other         |
+|                     |\__ge\__(self, other)       |self >= other        |
+|                     |\__lt\__(self, other)       |self < other         |
+|                     |\__le\__(self, other)       |self <= other        |
+|邏輯運算             |\__add\__(self, other)      |self + other         |
+|                     |\__sub\__(self, other)      |self - other         |
+|                     |\__mul\__(self, other)      |self * other         |
+|                     |\__truediv\__(self, other)  |self / other         |
+|                     |\__floordiv\__(self, other) |self // other        |
+|                     |\__mod\__(self, other)      |self % other         |
+|算術與邏輯運算       |\__pow\__(self, other)      |self ** other        |
+|                     |\__lshift\__(self, other)   |self << other        |
+|                     |\__rshift\__(self, other)   |self >> other        |
+|                     |\__and\__(self, other)      |self & other         |
+|                     |\__or\__(self, other)       |self  l  other        |
+|                     |\__xor\__(self, other)      |self ^ other         |
+|                     |\__len\__(self)             |len(self)            |
+|                     |\__str\__(self)             |str(self)            |
+|                     |\__[repr](https://www.pythoncentral.io/what-is-the-difference-between-__str__-and-__repr__-in-python/) \__(self) |repr(self) |
+		
 - CH9
 - CH10
 - CH11
