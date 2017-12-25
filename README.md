@@ -100,7 +100,7 @@
 			- 運算子('=='、'!='...)或內建函式
 			可以與[特殊函式](https://docs.python.org/3/reference/datamodel.html#special-method-names)
 			(`__eq__`、`__ne__`)自動對應
-			- 詳見表格
+			- ** 詳見下方表格 **
 		9. 組合(composition)
 			- 類別與類別間不全然是繼承關係
 			- 也可能 類別A 是 類別B 的一部分
@@ -112,12 +112,31 @@
 			- 類別方法：
 				* 第一個參數：通常取名為`cls`
 				* 需在類別中，函式的前一行使用裝飾器`@classmethod`
-			- 實例方法(instance method):
+			- cf. 實例方法(instance method):
 				* 第一個參數都是 `self`
 		11. 靜態方法(static method)
-			- 讓類別不需要建立物件，就可以直接使用該類別的靜態方法
-			- 需在類別中，函式的前一行使用裝飾器`@staticmethod`
-				
+			- 讓類別**不需要建立物件，就可以直接使用**該類別的靜態方法
+			- 需在類別中，函式的前一行使用裝飾器`@staticmethod`	
+	* 8-2 例外(exception)
+		1. try-except
+			- 可攔截例外
+			- try 區塊：撰寫可能發生錯誤的程式
+			- except 區塊：若程式發生錯誤，在這進行後續處理
+		2. try-except-else
+			- else 區塊：若沒有發生錯誤，跳到這繼續執行
+		3. try-except-as-else
+			- except ... as ...：將錯誤類別轉換成對應的錯誤類別物件
+			- 可以有多個錯誤類別
+		4. try-except-as-else 與 自訂例外類別
+			- 自訂例外類別需繼承 Exception，該類別就會成為例外類別
+				e.g. `class PwdException(Exception)`
+			- 可以傳入參數
+			- 使用指令 `raise` 發出例外
+		5. try-except-as-else-finally 與 自訂例外類別
+			- finally 區塊：不管有無發生錯誤，都會執行
+	
+** 8-1-8 附表 **
+	
 |                     |特殊函式                    |對應的運算子         |
 |---------------------|----------------------------|---------------------|
 |比較運算             |\__eq\__(self, other)       |self == other        |
@@ -136,12 +155,26 @@
 |                     |\__lshift\__(self, other)   |self << other        |
 |                     |\__rshift\__(self, other)   |self >> other        |
 |                     |\__and\__(self, other)      |self & other         |
-|                     |\__or\__(self, other)       |self  l  other        |
+|                     |\__or\__(self, other)       |self  l  other       |
 |                     |\__xor\__(self, other)      |self ^ other         |
 |                     |\__len\__(self)             |len(self)            |
 |                     |\__str\__(self)             |str(self)            |
 |                     |\__[repr](https://www.pythoncentral.io/what-is-the-difference-between-__str__-and-__repr__-in-python/) \__(self) |repr(self) |
+
+
+** 8-2 附表 **	
 		
+|錯誤類型             |說明                                                |
+|---------------------|-----------------------------------------------     |
+|KeyboardInterrup     |當使用者輸入中斷(`Ctrl + c`)時，發出此錯誤訊息      |
+|ZeroDivisionError    |除以0時，發出此錯誤訊息                             |
+|EOFError             |接受到EOF(end of file)訊息時，發出此錯誤            |
+|NameError            |區域或全域變數找不到時，發出此錯誤訊息              |
+|OSError              |與作業系統有關的錯誤                                |
+|FileNotFoundError    |檔案或資料夾找不到的時候，發出此錯誤                |
+|ValueError           |傳入資料與程式預期輸入資料之行別不同時，發出此錯誤  |
+
+
 - CH9
 - CH10
 - CH11
