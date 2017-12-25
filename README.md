@@ -175,7 +175,18 @@
 |ValueError           |傳入資料與程式預期輸入資料之行別不同時，發出此錯誤  |
 
 
-- CH9
+- CH9 進階字串處理
+	1. ASCII 編碼
+		- 模組 sting ：`import string`
+		- string.ascii_letters / ascii_lowercase / ascii_uppercase / 
+		digits / hexdidits / octdigits / punctuation / printable / whitespace
+	2. Unicode 編碼
+		- `import unicodedata`
+		- `unicodedata.name('中文字/4個16進位/8個16進位/標準名稱')` --> Unicode 標準名稱
+		- `unicodedata.lookup('標準名稱')` --> Unicode 字元
+		- 編碼(encode):將 字串 轉換為 位元組(byte)
+		- 解碼(decode):將 已編碼的位元組(byte) 轉換為 字串
+	3. 正規表示式(regular expression)
 - CH10
 - CH11
 - CH12
