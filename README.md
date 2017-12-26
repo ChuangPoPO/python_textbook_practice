@@ -94,64 +94,64 @@
 ### 8-1 類別
 1. 實作類別
 2. 繼承
- - 定義繼承關係：`class 衍伸類別-子類別 (基礎類別-雙親類別)`
- - 呼叫基礎類別的函式：`super().基礎類別的函式`
+  - 定義繼承關係：`class 衍伸類別-子類別 (基礎類別-雙親類別)`
+  - 呼叫基礎類別的函式：`super().基礎類別的函式`
 3. 覆寫函式
- - Do：在衍伸類別內，重新修改基礎類別的函式
- - For：衍伸類別與基礎類別的**相同函式有不同的功能**
+  - Do：在衍伸類別內，重新修改基礎類別的函式
+  - For：衍伸類別與基礎類別的**相同函式有不同的功能**
 4. 新增參數的覆寫函式
- - Do：覆寫函式時，新增參數
+  - Do：覆寫函式時，新增參數
 5. 新增函式
- - Do：在衍伸類別內，**新增基礎類別沒有的函式**
+  - Do：在衍伸類別內，**新增基礎類別沒有的函式**
 6. 多型(polymorphism)
- - 多個類別可以定義**相同的**函式名稱
- - 而相同的函式名稱在不同類別可以定義**各自特有的功能**
-  * call：物件的函式名稱
-  * output：不同的物件都定義此 相同函式名稱 而產生的**不同功能**
- - python 中，類別不一定要有繼承關係7. 類別內**無法**直接存取的變數
- - 目的：資料保護
- - 用法：變數名稱前加上 `__`
-  - e.g.`__變數名稱`
- - 作用：其他物件 無法直接使用 `類別物件.__變數名稱` 來存取
- - 解法：需要在類別內定義函式，回傳 `self.__變數名稱` 才能讓 其他物件 存取到該變數
+  - 多個類別可以定義**相同的**函式名稱
+  - 而相同的函式名稱在不同類別可以定義**各自特有的功能**
+   * call：物件的函式名稱
+   * output：不同的物件都定義此 相同函式名稱 而產生的**不同功能**
+  - python 中，類別不一定要有繼承關係7. 類別內**無法**直接存取的變數
+  - 目的：資料保護
+  - 用法：變數名稱前加上 `__`
+   - e.g.`__變數名稱`
+  - 作用：其他物件 無法直接使用 `類別物件.__變數名稱` 來存取
+  - 解法：需要在類別內定義函式，回傳 `self.__變數名稱` 才能讓 其他物件 存取到該變數
 8. 特殊函式(special method)
- - 運算子('=='、'!='...)或內建函式
+  - 運算子('=='、'!='...)或內建函式
   可以與[特殊函式](https://docs.python.org/3/reference/datamodel.html#special-method-names)
  (`__eq__`、`__ne__`)自動對應
- - ** 詳見下方表格 **
+  - ** 詳見下方表格 **
 9. 組合(composition)
- - 類別與類別間不全然是繼承關係
- - 也可能 類別A 是 類別B 的一部分
-  - ex. 腳是動物的一部分，但腳不是動物，腳無法繼承動物
-  - 因此在 動物類別 初始化時，將 腳 當成參數傳入，讓 腳 為 動物 的一部分
+  - 類別與類別間不全然是繼承關係
+  - 也可能 類別A 是 類別B 的一部分
+   - ex. 腳是動物的一部分，但腳不是動物，腳無法繼承動物
+   - 因此在 動物類別 初始化時，將 腳 當成參數傳入，讓 腳 為 動物 的一部分
 10. 類別方法(class method)
- - 作用對象：類別(class)
- - 影響：整個類別、類別所產生的物件
- - 類別方法：
-  * 第一個參數：通常取名為`cls`
-  * 需在類別中，函式的前一行使用裝飾器`@classmethod`
- - cf. 實例方法(instance method):
-  * 第一個參數都是 `self`
+  - 作用對象：類別(class)
+  - 影響：整個類別、類別所產生的物件
+  - 類別方法：
+   * 第一個參數：通常取名為`cls`
+   * 需在類別中，函式的前一行使用裝飾器`@classmethod`
+  - cf. 實例方法(instance method):
+   * 第一個參數都是 `self`
 11. 靜態方法(static method)
- - 讓類別**不需要建立物件，就可以直接使用**該類別的靜態方法
- - 需在類別中，函式的前一行使用裝飾器`@staticmethod`	
+  - 讓類別**不需要建立物件，就可以直接使用**該類別的靜態方法
+  - 需在類別中，函式的前一行使用裝飾器`@staticmethod`	
 
 ### 8-2 例外(exception)
- 1. try-except
+1. try-except
   - 可攔截例外
   - try 區塊：撰寫可能發生錯誤的程式
   - except 區塊：若程式發生錯誤，在這進行後續處理
- 2. try-except-else
+2. try-except-else
   - else 區塊：若沒有發生錯誤，跳到這繼續執行
- 3. try-except-as-else
+3. try-except-as-else
   - except ... as ...：將錯誤類別轉換成對應的錯誤類別物件
   - 可以有多個錯誤類別
- 4. try-except-as-else 與 自訂例外類別
+4. try-except-as-else 與 自訂例外類別
   - 自訂例外類別需繼承 Exception，該類別就會成為例外類別
    e.g. `class PwdException(Exception)`
   - 可以傳入參數
   - 使用指令 `raise` 發出例外
- 5. try-except-as-else-finally 與 自訂例外類別
+5. try-except-as-else-finally 與 自訂例外類別
   - finally 區塊：不管有無發生錯誤，都會執行
 	
 ** 8-1-8 附表 **
@@ -197,20 +197,20 @@
 ## CH9 進階字串處理
 
 1. ASCII 編碼
- - 模組 sting ：`import string`
- - string.ascii_letters / ascii_lowercase / ascii_uppercase / 
+  - 模組 sting ：`import string`
+  - string.ascii_letters / ascii_lowercase / ascii_uppercase / 
   digits / hexdidits / octdigits / punctuation / printable / whitespace
 2. Unicode 編碼
- - `import unicodedata`
- - `unicodedata.name('中文字/4個16進位/8個16進位/標準名稱')` --> Unicode 標準名稱
- - `unicodedata.lookup('標準名稱')` --> Unicode 字元
- - 編碼(encode)：將 字串 轉換為 位元組(byte)
- - 解碼(decode)：將 已編碼的位元組(byte) 轉換為 字串
+  - `import unicodedata`
+  - `unicodedata.name('中文字/4個16進位/8個16進位/標準名稱')` --> Unicode 標準名稱
+  - `unicodedata.lookup('標準名稱')` --> Unicode 字元
+  - 編碼(encode)：將 字串 轉換為 位元組(byte)
+  - 解碼(decode)：將 已編碼的位元組(byte) 轉換為 字串
 3. 正規表示式(regular expression)
- - 模組 re：`import re`
-  - `re.match('開頭字', string)`
-  - `re.search('找第一次出現', string)`
-  - `re.findall('所有符合格式的字串', string)`：回傳串列
+  - 模組 re：`import re`
+   - `re.match('開頭字', string)`
+   - `re.search('找第一次出現', string)`
+   - `re.findall('所有符合格式的字串', string)`：回傳串列
 
 |關鍵字  |用於：意思是                             |e.g.                      |e.g. 的結果會是                 |
 |:------:|-----------------------------------------|--------------------------|--------------------------------|
