@@ -240,10 +240,45 @@
   - `import fnmatch`
   
 2. 存取文字檔
-
+  - `fin = open(filename, mode, encoding)`
+   - mode：r、w、x、a、t、b、+
+  
+  ```python
+   fin.read(size)
+   fin.readline()
+   # readlines() return a list
+   lines = fin.readlines()
+   fin.write(string)
+   print(*objects, sep='', end='\n', file = fin)
+   fin.close()
+   with open(filename|path) as nickname:
+       do something
+  ```
 3. 存取csv檔
-
+  - `import csv`
+  - 物件
+   ```python
+    csv.write(csvfile)
+	csv.reader(csvfile)
+	csv.DictReader(csvfile)
+	csv.DictWriter(csvfile)
+	```
+  - 方法
+   ```python
+   obj.writerows(rows)
+   obj.writeheader()
+   ```
+  - 寫入檔案時，設定 encoding = 'utf-8' 會出現亂碼
+  - 寫入檔案若遇到多空一行的問題時，可以加上 `newline=''`
+  
+    e.g. `with open('ex3-poem.csv', 'wt', newline='') as f2:`
+	
 4. 存取二進位檔
+  - bytes：不可變的二進位字串
+  - bytearray：可修改的二進位字串
+  - `import pickle`
+    - `pickle.dump(obj,file_opened)`：將物件轉成二進位檔案
+	- `pickle.load(file_opened)`：將二進位檔案還原成原物件
 
 - - -
 
