@@ -1,5 +1,10 @@
 # python\_textbook\_practice
 
+## 覺得好用的方法
+* [sorted](https://docs.python.org/3/howto/sorting.html)
+* [sorted](https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value) dictionary by value
+
+
 ## CH2 資料型別、變數與運算子
 
 * Python 資料型別
