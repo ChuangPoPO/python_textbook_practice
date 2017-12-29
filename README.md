@@ -1,5 +1,11 @@
 # python\_textbook\_practice
 
+## 覺得好用的方法
+* [sorted](https://docs.python.org/3/howto/sorting.html)
+* [sorted](https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value) dictionary by value
+
+- - -
+
 ## CH2 資料型別、變數與運算子
 
 * Python 資料型別
@@ -7,7 +13,7 @@
 * 運算子
 * 字串
 
-- - -	
+	
 ## CH3 Python 的資料儲存容器
 
 * tuple
@@ -15,7 +21,7 @@
 * dict(字典)
 * set(集合)
 
-- - -	
+	
 ## CH4 選擇結構
 
 * if
@@ -23,7 +29,7 @@
 * if-elif-else
 * in
 
-- - -	
+
 ## CH5 迴圈與生成式
 
 * for
@@ -53,7 +59,7 @@
     - 產生器只能執行一次，執行第二次不會產生任何值
     - e.g. `( x for x in range(1,10) if (x%2) == 1 )`
 
-- - -		
+		
 ## CH6 函式與遞迴
 
 * 函式的說明文件
@@ -71,7 +77,7 @@
   - 需要有終止條件
    * 否則會變成無窮迴圈 QAQ
 
-- - -		
+		
 ## CH7 模組、套件與獨立程式：	
 
 * 模組 module ： 一個 .py 的 python 檔案
@@ -88,7 +94,7 @@
    ```
 * 腳本程式 Script：??看不懂
 
-- - -
+
 ## CH8 類別與例外
 
 ### 8-1 類別
@@ -195,7 +201,7 @@
 |FileNotFoundError    |檔案或資料夾找不到的時候，發出此錯誤                |
 |ValueError           |傳入資料與程式預期輸入資料之行別不同時，發出此錯誤  |
 
-- - -
+
 
 ## CH9 進階字串處理
 
@@ -231,11 +237,17 @@
 |\b      |字串邊界：「\w」與「\W」的邊界           |`re.findall(r'\b','a_+b')`|字串兩邊的邊界'',''             |
 |\B      |字串中 字元間邊界：非「\w」與「\W」的邊界|`re.findall('\B','a_+b')` |字元間的邊界'','',''            |
 
-- - -
+
 ## CH10 資料夾與檔案
 
 1. 資料夾與檔案相關模組
   - `import os`
+    ```python
+	  os.getcwd()
+	  os.chdir(path)
+      os.path.getsize(path)  
+	  ...
+	```
   - `import glob`
   - `import fnmatch`
   
@@ -280,11 +292,94 @@
     - `pickle.dump(obj,file_opened)`：將物件轉成二進位檔案
 	- `pickle.load(file_opened)`：將二進位檔案還原成原物件
 
-- - -
-
-## CH11
 
 
-- - -
+## CH11 標準函式庫
+1. 系統相關的模組
+ - os 模組：
+   ```python
+    os.system(cammand)
+	os.getenv(key)
+	locals()
+	globals()
+   ```
+ - pprint 模組：
+   ```python
+    pprint.pprint(data)
+   ```
+   
+1. 可迭代的函式庫
+ - itertools 模組：
+   ```python
+    itertools.count(start,[step])
+	itertools.cycle(iterable)
+	itertools.repeat(obj[,times])
+	itertools.accumlate(iterable[,func])
+	itertools.chain(*iterable)
+	itertools.permutations(iterable, r=None) # 排列
+	itertools.combinations(iterable, r) # 組合
+   ```
+ - enumerate、zip 函式
+   ```python
+    enumerate(sequence, start = 0)
+	zip([iterable,...])
+   ```
+ - filter、map 與 reduce 函式
+   ```python
+     filter(function, iterable)
+	 map(function, iterable,...)
+	 functools.reduce(function, iterable[, initializer])
+   ```
+1. 時間函式庫
+ - datetime 模組：日期、時間
+   ```python
+     datetime.now()
+	 datetime.datetime(year,month,day,hour,minute,second,microsecond)
+   ```
+ - date 模組：日期
+   ```python
+     date.today()
+   ```
+ - time 模組：時間
+   ```python
+     time.time()
+	 time.ctime([secs])
+	 time.localtime([secs]) #struct_time object
+	 time.strftime(format[,t])
+   ```
+ - timedelta 模組：經過的時間間隔
+   ```python
+     from datetime import datetime, timedelta
+     datetime.timedelta(days = 0, seconds = 0, microseconds = 0, milliseconds = 0, minutes = 0, hours = 0, weeks = 0)
+	 # -999999999 <= days <= 999999999
+	 # 0 <= seconds <= 86399
+	 # 0 <= microseconds <= 999999
+   ```
+1. collections 套件
+ - 包含模組 OrderDict、deque與counter
+   ```python
+     collections.OrderDict([item])
+   ```
+ 
+1. 綜合應用--備份資料夾
 
-## CH12
+
+## CH12 擷取網頁資料
+1. 模組 urllib.request、urllib.response與requests
+1. 存取JSON
+1. 存取XML
+1. 使用套件Beautiful Soup存取HTML
+
+
+## CH13 關聯式資料庫
+1. 關聯式資料庫
+1. SQL
+1. 存取SQLite
+1. Mysql資料庫的下載與安裝
+1. 使用SQLAIchemy與PyMysql存取Mysql
+
+
+## CH14 第三方模組
+1. 第三方模組
+1. 圖片處理模組
+1. 數學相關模組
