@@ -1,0 +1,52 @@
+* pandas
+import pandas as pd
+pd.set_option("display.max_columns",50) #設定pandas最多顯示出50個欄位資訊
+df = pd.read_csv('A_LVR_LAND_A.csv', encoding='big5') #台北市
+df.sample(5) #隨機取其中5筆資料
+df.groupby('交易標的').mean()
+# 去除土地和車位兩種交易資料
+df = df[(df['交易標的']!='土地') & (df['交易標的']!='車位')].reset_index(drop=True)
+df.loc[:,'總價元'] = df.loc[:,'總價元']/10000 #改成以萬為單位，方便圖表顯示
+
+
+* matplotlib.pyplot
+import matplotlib.pyplot as plt
+%matplotlib inline
+plt.style.use('ggplot')
+plt.rcParams['font.family']='DFKai-SB' #顯示中文(for Win10)
+plt.rcParams['axes.unicode_minus']=False #正常顯示負號
+
+
+* numpy
+import numpy as np
+#input y轉為一維矩陣type
+y_train_1d = y_train.values.ravel()
+
+[numpy.ndarray.shape](https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.ndarray.shape.html)
+
+
+* 模型驗證
+print('各變項參數:', lin_svc_st.coef_)
+print("MSE: %.2f" % np.mean((lin_svc_st.predict(X_test_std) - y_test.values.ravel()) ** 2))
+print("R Square:",lin_svc_pca.score(X_test_std,y_test))
+#呈現訓練結果
+plt.scatter(X_train_normalized, y_train_1d,  color='blue', marker = 'x')
+plt.plot(X_train_normalized, sgdr.predict(X_train_normalized), color='green', linewidth=1)
+plt.ylabel('總價元(10K)')
+plt.xlabel('建物移轉總面積平方公尺')
+plt.show()
+
+* 資料切分
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3)
+
+* 資料標準化
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+X_train_std = sc.fit_transform(X_train)
+X_test_std = sc.transform(X_test)
+
+* 混淆矩陣
+from sklearn import metrics
+print(metrics.classification_report(y_pca2_test, knn_pca_std.predict(X_pca2_test_std)))
+print(metrics.confusion_matrix(y_pca2_test, knn_pca_std.predict(X_pca2_test_std)))
