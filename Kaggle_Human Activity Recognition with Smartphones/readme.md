@@ -1,7 +1,8 @@
-Feature 數量：563
-使用數量：561
+## information
+- Feature 數量：563
+- 使用數量：561
 
-## PCA.explained_variance_ratio_ ：
+## PCA.explained_variance_ratio_
 - 在 196 個 feature 即可達到 99.5% 的準確度
 - 在 155 個 feature 即可達到 99% 的準確度
 - 在 132 個 feature 即可達到 98.5% 的準確度
